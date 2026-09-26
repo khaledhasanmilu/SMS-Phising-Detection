@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}Scanner — PhishGuard{% endblock %}
+{% block content %}
+
+<section class="section narrow" style="padding-top:36px">
+  <div class="section-head">
+    <span class="eyebrow">SMS Checker</span>
+    <h2>Paste. Check. <span>Know.</span></h2>
+    <p>Copy any doubtful message below and get a clear answer instantly.</p>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-band" style="grid-template-columns:repeat(3,1fr)">
+    <div class="stat-card"><div class="num" style="color:var(--accent)">{{ stats.checked }}</div><div class="lbl">Checked</div></div>
+    <div class="stat-card"><div class="num" style="color:var(--accent2)">{{ stats.safe }}</div><div class="lbl">Safe</div></div>
+    <div class="stat-card"><div class="num" style="color:var(--danger)">{{ stats.threats }}</div><div class="lbl">Threats</div></div>
+  </div>
+
+  <!-- Scanner -->
+  <div class="card">
+    <div class="card-head">
+      <div class="label">Paste SMS message</div>
+      <div class="count"><b id="charCount">0</b> chars</div>
+    </div>
+    <form method="post" id="scanForm">
+      <textarea id="smsInput" name="sms" rows="5" maxlength="2000"
+        placeholder="e.g. Congratulations! You've won a FREE iPhone. Click http://bit.ly/claim to verify...">{{ sms_text }}</textarea>
+      <div class="samples">
+        <span>Try →</span>
+        <button type="button" class="chip" onclick="fillSample('safe')">✅ safe sample</button>
+        <button type="button" class="chip danger" onclick="fillSample('phish')">🚨 phishing sample</button>
+      </div>
+      <button class="btn-scan" type="submit" id="scanBtn">
+        <span class="spinner" id="spinner"></span>
+        <svg id="scanIcon" width="17" height="17" viewBox="0 0 16 16" fill="none">
+          <circle cx="7" cy="7" r="5" stroke="#04120c" stroke-width="1.8"/>
+          <path d="M11 11l3 3" stroke="#04120c" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <span id="btnText">Scan Message</span>
+      </button>
+    </form>
+    <form method="post">
+      <button class="btn-reset" name="reset" value="1" type="submit">↺ Reset Counters</button>
+    </form>
+  </div>
+
+  <!-- Result -->
+  {% if result %}
+    {% if result == "Phishing 🚨" %}
+      <div class="result-box result-phish">
+        <div class="result-header">
+          <div class="result-icon icon-phish">⚠️</div>
+          <div>
+            <div class="result-title" style="color:var(--danger)">Phishing Detected</div>
+            <div class="result-sub">DANGER — DO NOT CLICK, REPLY, OR PAY</div>
+          </div>
+        </div>
+        {% if reasons %}
+          <div class="divider"></div>
+          <div class="reasons-label">Warning signs ({{ reasons|length }} found)</div>
+          <div>{% for r in reasons %}<span class="reason-tag"><span class="dot"></span>{{ r }}</span>{% endfor %}</div>
+        {% else %}
+          <div class="divider"></div>
+          <div class="reasons-label">Our checker found a suspicious pattern — be careful</div>
+        {% endif %}
+      </div>
+    {% else %}
+      <div class="result-box result-safe">
+        <div class="result-header">
+          <div class="result-icon icon-safe">✅</div>
+          <div>
+            <div class="result-title" style="color:var(--accent)">Message Safe</div>
+            <div class="result-sub">NO PHISHING INDICATORS DETECTED ✓</div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% else %}
+    <div class="card idle">
+      <p>Paste a message above and press Scan to check it</p>
+    </div>
+  {% endif %}
+
+  <div class="tips-grid" style="margin-top:18px">
+    <div class="tip"><h4>Never click blindly</h4><p>A prize message with a short link is the most common trap. Check the link before touching it.</p></div>
+    <div class="tip"><h4>OTP is secret</h4><p>No bank or office asks for your OTP over a link. Never share it with anyone.</p></div>
+  </div>
+</section>
+
+{% endblock %}

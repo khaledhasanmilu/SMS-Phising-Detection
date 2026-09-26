@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block title %}Real Scam Cases — PhishGuard{% endblock %}
+{% block content %}
+
+<section class="section" style="padding-top:36px">
+  <div class="section-head">
+    <span class="eyebrow">REAL WORLD · BE CAREFUL</span>
+    <h2>Scams that <span>actually happened</span></h2>
+    <p>These are typical SMS fraud patterns seen in Bangladesh and worldwide. Hover any card — then scan similar messages yourself.</p>
+  </div>
+
+  <div class="cases-grid">
+
+    <!-- 1 -->
+    <article class="case-card reveal">
+      <div class="case-img c1">
+        <img src="{{ url_for('static', filename='img/case1.jpg') }}" alt="Person checking a message on smartphone at night" loading="lazy">
+        <span class="case-tag">MOBILE BANKING</span><span class="case-loss">৳25,000 lost</span>
+      </div>
+      <div class="case-body">
+        <h3>The Fake bKash Agent</h3>
+        <div class="case-loc">DHAKA · 2023</div>
+        <p>A caller claimed to be a bKash agent, said the account would be blocked, and asked for the OTP "for verification". The victim shared it — money was gone in minutes.</p>
+        <div class="case-sms">"bKash: Your account will be SUSPENDED. Verify now with OTP or call 01XXXXXXXXX. — bKash Agent"</div>
+        <div class="case-lesson">✓ Lesson: no real agent ever asks for your OTP or PIN.</div>
+        <a class="case-link" href="{{ url_for('scanner') }}">Scan a similar SMS →</a>
+      </div>
+    </article>
+
+    <!-- 2 -->
+    <article class="case-card reveal">
+      <div class="case-img c2">
+        <img src="{{ url_for('static', filename='img/case2.jpg') }}" alt="Lottery tickets" loading="lazy">
+        <span class="case-tag">LOTTERY TRAP</span><span class="case-loss">$1,200 lost</span>
+      </div>
+      <div class="case-body">
+        <h3>You Won a Lottery You Never Entered</h3>
+        <div class="case-loc">CHATTOGRAM · 2024</div>
+        <p>"Congratulations! You won ৳10 lakh!" To "release" the prize, the victim had to pay a "tax fee" first via mobile recharge. The prize never existed.</p>
+        <div class="case-sms">"WINNER! You won Tk 10,00,000! Claim: http://bit.ly/prize-claim-bd. Pay delivery fee first."</div>
+        <div class="case-lesson">✓ Lesson: real lotteries never ask for fees upfront via SMS links.</div>
+        <a class="case-link" href="{{ url_for('scanner') }}">Scan a similar SMS →</a>
+      </div>
+    </article>
+
+    <!-- 3 -->
+    <article class="case-card reveal">
+      <div class="case-img c3">
+        <img src="{{ url_for('static', filename='img/case3.jpg') }}" alt="Credit and debit cards" loading="lazy">
+        <span class="case-tag">BANK PHISHING</span><span class="case-loss">৳80,000 lost</span>
+      </div>
+      <div class="case-body">
+        <h3>Account Blocked — Verify Now!</h3>
+        <div class="case-loc">WORLDWIDE · ONGOING</div>
+        <p>An SMS warned the bank account was "locked" with a link to "verify". The link opened a pixel-perfect fake bank page that stole login + OTP.</p>
+        <div class="case-sms">"URGENT: Your account has been locked. Verify immediately: http://secure-bank-verify.tk/login"</div>
+        <div class="case-lesson">✓ Lesson: banks never send login links by SMS. Open the app yourself.</div>
+        <a class="case-link" href="{{ url_for('scanner') }}">Scan a similar SMS →</a>
+      </div>
+    </article>
+
+    <!-- 4 -->
+    <article class="case-card reveal">
+      <div class="case-img c4">
+        <img src="{{ url_for('static', filename='img/case4.webp') }}" alt="Parcel box waiting by a mailbox" loading="lazy">
+        <span class="case-tag">COURIER SCAM</span><span class="case-loss">Card data stolen</span>
+      </div>
+      <div class="case-body">
+        <h3>Your Parcel Is Stuck — Pay ৳50</h3>
+        <div class="case-loc">DHAKA · 2024</div>
+        <p>"Customs holding your parcel, pay a small fee to release." The payment page harvested the full card number. Victims only noticed at month-end.</p>
+        <div class="case-sms">"Courier: parcel held. Pay Tk 50 redelivery fee: http://parcel-release-bd.xyz/track"</div>
+        <div class="case-lesson">✓ Lesson: tiny fees are bait. Track parcels only on official sites.</div>
+        <a class="case-link" href="{{ url_for('scanner') }}">Scan a similar SMS →</a>
+      </div>
+    </article>
+
+    <!-- 5 -->
+    <article class="case-card reveal">
+      <div class="case-img c5">
+        <img src="{{ url_for('static', filename='img/case5.jpg') }}" alt="Woman working on laptop in a home office" loading="lazy">
+        <span class="case-tag">JOB OFFER</span><span class="case-loss">৳15,000 lost</span>
+      </div>
+      <div class="case-body">
+        <h3>Part-Time Job, Daily $50</h3>
+        <div class="case-loc">ONLINE · 2024</div>
+        <p>"Work from phone, earn daily!" First small tasks actually paid — then came the "deposit to unlock bigger tasks". Deposit done, recruiters vanished.</p>
+        <div class="case-sms">"FREE registration! Earn $50/day from home. WhatsApp us +8801XXXXXXXXX. Limited seats!"</div>
+        <div class="case-lesson">✓ Lesson: real jobs never ask YOU to deposit money first.</div>
+        <a class="case-link" href="{{ url_for('scanner') }}">Scan a similar SMS →</a>
+      </div>
+    </article>
+
+    <!-- 6 -->
+    <article class="case-card reveal">
+      <div class="case-img c6">
+        <img src="{{ url_for('static', filename='img/case6.jpg') }}" alt="Bangladeshi taka banknotes" loading="lazy">
+        <span class="case-tag">LOAN TRAP</span><span class="case-loss">Identity stolen</span>
+      </div>
+      <div class="case-body">
+        <h3>Instant Loan, Zero Papers</h3>
+        <div class="case-loc">SYLHET · 2023</div>
+        <p>"Pre-approved loan of ৳2 lakh, just send NID photo + fee." The NID was then used to open mobile accounts in the victim's name.</p>
+        <div class="case-sms">"You are APPROVED for Tk 2,00,000 loan! Send NID + 500 fee to http://quick-loan-bd.xyz"</div>
+        <div class="case-lesson">✓ Lesson: never send NID photos to SMS numbers. Ever.</div>
+        <a class="case-link" href="{{ url_for('scanner') }}">Scan a similar SMS →</a>
+      </div>
+    </article>
+
+  </div>
+  <p style="text-align:center;color:var(--muted2);font-size:11.5px;margin-top:14px">Photos: Wikimedia Commons contributors (free license) — used for illustration.</p>
+
+  <div class="cta-banner reveal">
+    <h2>Recognize one of these messages?</h2>
+    <p>Paste it into the scanner before you reply, click, or pay.</p>
+    <a href="{{ url_for('scanner') }}" class="btn btn-primary btn-lg">Open Scanner</a>
+  </div>
+</section>
+
+{% endblock %}

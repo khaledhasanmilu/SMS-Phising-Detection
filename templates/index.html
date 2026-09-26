@@ -1,0 +1,209 @@
+{% extends "base.html" %} {% block title %}PhishGuard — Check If That SMS Is
+Safe{% endblock %} {% block content %}
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">Free SMS safety check</span>
+    <h1>Got a strange SMS? <span class="grad">Check it before you click.</span></h1>
+    <p class="hero-sub">
+      Prize message? Bank warning? Unknown link? Paste it into PhishGuard and
+      get a clear answer in seconds — safe or scam — so you never lose money to
+      a fake SMS.
+    </p>
+    <div class="hero-cta">
+      <a href="{{ url_for('scanner') }}" class="btn btn-primary btn-lg"
+        >Check a Message</a
+      >
+      <a href="{{ url_for('scam_cases') }}" class="btn btn-ghost btn-lg"
+        >See Real Scams →</a
+      >
+    </div>
+    <div class="hero-meta">
+      <span><b>Free</b> to use</span>
+      <span><b>No</b> signup needed</span>
+      <span>Works on <b>mobile</b></span>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="term-card">
+      <div class="term-bar">
+        <span class="tdots"><i></i><i></i><i></i></span>
+        <span class="term-title">phishguard · live scan</span>
+        <span class="term-live">LIVE</span>
+      </div>
+      <div class="term-body">
+        <div class="term-line">$ incoming sms <b>— 09:41</b></div>
+        <div class="term-sms">"URGENT! You WON a FREE iPhone. Claim: bit.ly/abc12"</div>
+        <div class="term-scan"><div class="term-beam"></div></div>
+        <div class="term-verdict bad">✕ SCAM · prize bait + short link</div>
+        <div class="term-line" style="margin-top:12px">$ incoming sms <b>— 09:42</b></div>
+        <div class="term-sms" style="border-left-color:#28c840">"Hey, running late — be home in 20 mins."</div>
+        <div class="term-verdict good">✓ SAFE · normal message</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THREAT TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>FAKE BKASH AGENT <b>✕ BLOCKED</b></span>
+    <span>LOTTERY FEE FRAUD <b>✕ BLOCKED</b></span>
+    <span>BANK VERIFY LINK <b>✕ BLOCKED</b></span>
+    <span>PARCEL FEE TRAP <b>✕ BLOCKED</b></span>
+    <span>FAKE JOB DEPOSIT <b>✕ BLOCKED</b></span>
+    <span>LOAN NID THEFT <b>✕ BLOCKED</b></span>
+    <span>FAKE BKASH AGENT <b>✕ BLOCKED</b></span>
+    <span>LOTTERY FEE FRAUD <b>✕ BLOCKED</b></span>
+    <span>BANK VERIFY LINK <b>✕ BLOCKED</b></span>
+    <span>PARCEL FEE TRAP <b>✕ BLOCKED</b></span>
+    <span>FAKE JOB DEPOSIT <b>✕ BLOCKED</b></span>
+    <span>LOAN NID THEFT <b>✕ BLOCKED</b></span>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="section">
+  <div class="section-head reveal">
+    <span class="eyebrow">Why PhishGuard</span>
+    <h2>Simple protection for <span>everyday people</span></h2>
+    <p>
+      No technical knowledge needed. If you can copy-paste a message, you can
+      use this.
+    </p>
+  </div>
+  <div class="grid-3">
+    <div class="feature feature-photo reveal">
+      <div class="feature-img">
+        <img src="{{ url_for('static', filename='img/feat1.jpg') }}" alt="Man checking a message on his smartphone outdoors" loading="lazy">
+        <span class="feature-num">01</span>
+      </div>
+      <div class="feature-body">
+        <h3>Answer in seconds</h3>
+        <p>Paste the SMS, press one button, and know right away whether to trust it or delete it.</p>
+      </div>
+    </div>
+    <div class="feature feature-photo reveal">
+      <div class="feature-img">
+        <img src="{{ url_for('static', filename='img/feat2.jpg') }}" alt="Magnifying glass over a page" loading="lazy">
+        <span class="feature-num">02</span>
+      </div>
+      <div class="feature-body">
+        <h3>Tells you the reason</h3>
+        <p>Not just "scam" — it shows you exactly what looks wrong, like a prize promise or a suspicious link.</p>
+      </div>
+    </div>
+    <div class="feature feature-photo reveal">
+      <div class="feature-img">
+        <img src="{{ url_for('static', filename='img/feat3.jpg') }}" alt="Close-up of a padlock" loading="lazy">
+        <span class="feature-num">03</span>
+      </div>
+      <div class="feature-body">
+        <h3>Private by default</h3>
+        <p>Nothing is saved or sent anywhere. Your messages stay on your device and disappear when you close the page.</p>
+      </div>
+    </div>
+    <div class="feature feature-photo reveal">
+      <div class="feature-img">
+        <img src="{{ url_for('static', filename='img/feat4.jpg') }}" alt="Person reading and learning" loading="lazy">
+        <span class="feature-num">04</span>
+      </div>
+      <div class="feature-body">
+        <h3>Learn from real scams</h3>
+        <p>Read short stories of frauds that really happened, so you recognise the tricks next time.</p>
+      </div>
+    </div>
+    <div class="feature feature-photo reveal">
+      <div class="feature-img">
+        <img src="{{ url_for('static', filename='img/feat5.jpg') }}" alt="Person checking phone at a station" loading="lazy">
+        <span class="feature-num">05</span>
+      </div>
+      <div class="feature-body">
+        <h3>Track what you checked</h3>
+        <p>See how many messages you've checked, how many were safe, and how many scams you avoided.</p>
+      </div>
+    </div>
+    <div class="feature feature-photo reveal">
+      <div class="feature-img">
+        <img src="{{ url_for('static', filename='img/feat6.jpg') }}" alt="Smartphone in everyday use" loading="lazy">
+        <span class="feature-num">06</span>
+      </div>
+      <div class="feature-body">
+        <h3>Works on your phone</h3>
+        <p>Open it in any browser, day or night mode — check a message the moment it arrives.</p>
+      </div>
+    </div>
+  </div>
+  <p style="text-align:center;color:var(--muted2);font-size:11.5px;margin-top:14px">Photos: Wikimedia Commons contributors (free license) — used for illustration.</p>
+</section>
+
+<!-- HOW PREVIEW -->
+<section class="section" style="padding-top: 0">
+  <div class="section-head reveal">
+    <span class="eyebrow">How to use</span>
+    <h2>Check a message in <span>3 steps</span></h2>
+  </div>
+  <div class="steps">
+    <div class="step reveal">
+      <div class="step-no">01</div>
+      <h3>Copy the SMS</h3>
+      <p>Long-press the suspicious message on your phone and copy it.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-no">02</div>
+      <h3>Paste &amp; press scan</h3>
+      <p>Paste it in the checker box and press the Scan button.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-no">03</div>
+      <h3>Follow the advice</h3>
+      <p>Safe? Relax. Scam? Delete it, block the number, tell your family.</p>
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 22px">
+    <a href="{{ url_for('how_it_works') }}" class="btn btn-ghost"
+      >Read the safety guide →</a
+    >
+  </div>
+</section>
+
+<!-- EXAMPLES -->
+<section class="section" style="padding-top: 0">
+  <div class="section-head reveal">
+    <span class="eyebrow">Examples</span>
+    <h2>Scam vs <span>Safe</span></h2>
+  </div>
+  <div class="examples">
+    <div class="example phish reveal">
+      <h4 style="color: var(--danger)">SCAM</h4>
+      <blockquote>
+        "URGENT! You've WON a FREE iPhone. Click http://bit.ly/claim123 to
+        verify now!"
+      </blockquote>
+      <p style="color: var(--muted); font-size: 12.5px">
+        Pressures you, promises a prize, hides a link — classic fraud.
+      </p>
+    </div>
+    <div class="example safe reveal">
+      <h4 style="color: var(--accent)">SAFE</h4>
+      <blockquote>
+        "Hey, are we still meeting for lunch tomorrow at 1pm?"
+      </blockquote>
+      <p style="color: var(--muted); font-size: 12.5px">
+        Normal talk, no link, no prize, no pressure — nothing to worry about.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-banner reveal">
+  <h2>Got a suspicious SMS right now?</h2>
+  <p>Don't click — check it first. Takes 5 seconds.</p>
+  <a href="{{ url_for('scanner') }}" class="btn btn-primary btn-lg"
+    >Open the Checker</a
+  >
+</div>
+
+{% endblock %}

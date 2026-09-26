@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Safety Guide — PhishGuard{% endblock %}
+{% block content %}
+
+<section class="section narrow" style="padding-top:36px">
+  <div class="section-head">
+    <span class="eyebrow">Safety guide</span>
+    <h2>How to use this <span>checker</span></h2>
+    <p>Three small habits that keep your money and accounts safe.</p>
+  </div>
+
+  <div class="steps" style="grid-template-columns:1fr;gap:12px">
+    <div class="step reveal"><div class="step-no">01</div><h3>Copy the message</h3><p>Got an SMS about a prize, a blocked account, a parcel, or a job? Long-press it on your phone and copy the full text.</p></div>
+    <div class="step reveal"><div class="step-no">02</div><h3>Paste it in the checker</h3><p>Open the Scanner page, paste the message in the box, and press Scan. You'll get the answer in seconds.</p></div>
+    <div class="step reveal"><div class="step-no">03</div><h3>Do what it says</h3><p>If it says safe — relax. If it says scam — delete the SMS, block the number, and warn your family members too.</p></div>
+  </div>
+</section>
+
+<section class="section narrow" id="red-flags" style="padding-top:0">
+  <div class="section-head">
+    <span class="eyebrow">Warning signs</span>
+    <h2>4 tricks <span>scammers use</span></h2>
+  </div>
+  <div class="tips-grid">
+    <div class="tip reveal"><h4>Fake prizes</h4><p>"You WON!", "FREE phone", "claim your gift" — if you never joined anything, the prize is fake.</p></div>
+    <div class="tip reveal"><h4>Rushing you</h4><p>"URGENT", "last chance", "account will be blocked today" — they rush you so you don't think.</p></div>
+    <div class="tip reveal"><h4>Strange links</h4><p>Short or odd-looking links hide the real website. Never tap them directly — check here first.</p></div>
+    <div class="tip reveal"><h4>Asking for codes</h4><p>"Send your OTP to verify" — no real bank, office, or courier ever asks for your OTP or PIN.</p></div>
+  </div>
+</section>
+
+<section class="section narrow" id="tips" style="padding-top:0">
+  <div class="section-head">
+    <span class="eyebrow">Stay safe</span>
+    <h2>What to <span>do</span></h2>
+  </div>
+  <div class="tips-grid">
+    <div class="tip reveal"><h4>1. Stop and check</h4><p>Paste the SMS into PhishGuard before clicking, replying, or paying anything.</p></div>
+    <div class="tip reveal"><h4>2. Call the official number</h4><p>Worried about your bank or parcel? Call their real helpline or open their official app — never the number from the SMS.</p></div>
+    <div class="tip reveal"><h4>3. Never share OTPs</h4><p>Your OTP and PIN are only for you. Anyone asking for them is a fraud, even if they sound polite.</p></div>
+    <div class="tip reveal"><h4>4. Block and tell others</h4><p>Delete the message, block the sender, and show it to your parents and friends so they don't fall for it.</p></div>
+  </div>
+</section>
+
+<section class="section narrow faq" id="faq" style="padding-top:0">
+  <div class="section-head">
+    <span class="eyebrow">Questions</span>
+    <h2>Common <span>questions</span></h2>
+  </div>
+  <details class="reveal"><summary>Is the checker always right?</summary><p>It catches most common scams, but no checker is perfect. Rule of thumb: if a message rushes you, promises money, or asks for a code — treat it as a scam even if you're unsure.</p></details>
+  <details class="reveal"><summary>Are my messages saved anywhere?</summary><p>No. Nothing is stored or sent to anyone. Your check counter resets whenever you press reset or close the browser.</p></details>
+  <details class="reveal"><summary>Is it free? Do I need an account?</summary><p>Yes, free — and no account needed. Just open the page and use it, on phone or computer.</p></details>
+  <div style="text-align:center;margin-top:22px"><a href="{{ url_for('scanner') }}" class="btn btn-primary btn-lg">Check a Message Now</a></div>
+</section>
+
+{% endblock %}

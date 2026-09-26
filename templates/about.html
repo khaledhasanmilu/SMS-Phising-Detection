@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}About — PhishGuard{% endblock %}
+{% block content %}
+
+<section class="section narrow" style="padding-top:36px">
+  <div class="section-head">
+    <span class="eyebrow">About</span>
+    <h2>Why I made <span>this</span></h2>
+    <p>My family kept getting prize messages, fake bank warnings, and unknown links. I wanted one simple place where anyone can check such SMS — so I built it.</p>
+  </div>
+
+  <div class="card" id="use">
+    <div class="label" style="margin-bottom:12px">What you can do here</div>
+    <div class="steps" style="grid-template-columns:1fr;gap:10px">
+      <div class="step"><div class="step-no">1</div><h3>Check any SMS</h3><p>Prize, OTP, bank, courier, job offer — if a message feels off, paste it here.</p></div>
+      <div class="step"><div class="step-no">2</div><h3>Understand the risk</h3><p>You get a straight answer — safe or scam — plus the exact warning signs found in the text.</p></div>
+      <div class="step"><div class="step-no">3</div><h3>Protect your family</h3><p>Show doubtful messages to parents and elders. One check can save real money.</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="label" style="margin-bottom:10px">A small promise</div>
+    <p style="color:var(--muted);font-size:14px;line-height:1.75">No signup. No fees. Nothing of yours is stored. This is a free helper for everyday people — students, parents, shopkeepers — anyone with a phone. If it saves even one person from sending money to a fraud, it did its job.</p>
+  </div>
+
+  <div class="card">
+    <div class="label" style="margin-bottom:10px">Start here</div>
+    <p style="color:var(--muted);font-size:14px;line-height:1.75">New to SMS fraud? Read the <a href="{{ url_for('scam_cases') }}" style="color:var(--accent);font-weight:700">Real Cases</a> page first — those stories happened to real people. Then try the <a href="{{ url_for('scanner') }}" style="color:var(--accent);font-weight:700">checker</a> with any message you have.</p>
+  </div>
+
+  <div style="text-align:center;margin:6px 0 20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+    <a href="{{ url_for('scanner') }}" class="btn btn-primary btn-lg">Check a Message</a>
+    <a href="{{ url_for('scam_cases') }}" class="btn btn-ghost btn-lg">See Real Scams</a>
+  </div>
+</section>
+
+{% endblock %}
