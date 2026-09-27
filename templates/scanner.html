@@ -25,11 +25,6 @@
     <form method="post" id="scanForm">
       <textarea id="smsInput" name="sms" rows="5" maxlength="2000"
         placeholder="e.g. Congratulations! You've won a FREE iPhone. Click http://bit.ly/claim to verify...">{{ sms_text }}</textarea>
-      <div class="samples">
-        <span>Try →</span>
-        <button type="button" class="chip" onclick="fillSample('safe')">✅ safe sample</button>
-        <button type="button" class="chip danger" onclick="fillSample('phish')">🚨 phishing sample</button>
-      </div>
       <button class="btn-scan" type="submit" id="scanBtn">
         <span class="spinner" id="spinner"></span>
         <svg id="scanIcon" width="17" height="17" viewBox="0 0 16 16" fill="none">
@@ -55,6 +50,10 @@
             <div class="result-sub">DANGER — DO NOT CLICK, REPLY, OR PAY</div>
           </div>
         </div>
+        <div class="conf-block">
+          <div class="conf-head"><span>Model confidence</span><b>{{ conf }}%</b></div>
+          <div class="conf-bar"><div class="conf-fill" style="--w:{{ conf }}%"></div></div>
+        </div>
         {% if reasons %}
           <div class="divider"></div>
           <div class="reasons-label">Warning signs ({{ reasons|length }} found)</div>
@@ -72,6 +71,10 @@
             <div class="result-title" style="color:var(--accent)">Message Safe</div>
             <div class="result-sub">NO PHISHING INDICATORS DETECTED ✓</div>
           </div>
+        </div>
+        <div class="conf-block">
+          <div class="conf-head"><span>Model confidence</span><b>{{ conf }}%</b></div>
+          <div class="conf-bar"><div class="conf-fill" style="--w:{{ conf }}%"></div></div>
         </div>
       </div>
     {% endif %}

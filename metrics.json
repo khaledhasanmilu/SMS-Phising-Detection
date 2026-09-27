@@ -1,0 +1,1 @@
+{"accuracy": 96.1, "precision": 100.0, "recall": 70.5, "f1": 82.7, "confusion": [[966, 0], [44, 105]], "train_size": 4457, "test_size": 1115}

@@ -39,14 +39,6 @@
   function updateCount() { if (ta && cc) cc.textContent = ta.value.length; }
   if (ta) { ta.addEventListener('input', updateCount); updateCount(); }
 
-  window.fillSample = function (k) {
-    var samples = {
-      safe: 'Hey, are we still meeting for lunch tomorrow at 1pm?',
-      phish: "URGENT! You've WON a FREE iPhone. Click http://bit.ly/claim123 to verify your account now!"
-    };
-    if (ta) { ta.value = samples[k] || ''; updateCount(); ta.focus(); }
-  };
-
   var form = document.getElementById('scanForm');
   if (form) {
     form.addEventListener('submit', function () {

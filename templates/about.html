@@ -88,6 +88,26 @@ block content %}
   </div>
 
   <div class="card">
+    <div class="label" style="margin-bottom: 12px">Tested performance — real numbers</div>
+    <div class="kv">
+      <div class="kv-item"><b>{{ metrics.accuracy }}%</b><span>ACCURACY</span></div>
+      <div class="kv-item"><b>{{ metrics.precision }}%</b><span>PRECISION (SCAM)</span></div>
+      <div class="kv-item"><b>{{ metrics.recall }}%</b><span>RECALL (SCAM)</span></div>
+    </div>
+    <p style="color: var(--muted); font-size: 14px; line-height: 1.75">
+      Tested on {{ metrics.test_size }} messages the model had never seen
+      before (trained on {{ metrics.train_size }}, 80/20 split). In plain
+      words: it almost never calls a safe message a scam — but it still misses
+      some tricky scams, which is exactly why extra safety checks run on top.
+    </p>
+    <table class="cm-table">
+      <tr><th></th><th>Predicted Safe</th><th>Predicted Scam</th></tr>
+      <tr><th>Actually Safe</th><td>{{ metrics.confusion[0][0] }}</td><td>{{ metrics.confusion[0][1] }}</td></tr>
+      <tr><th>Actually Scam</th><td>{{ metrics.confusion[1][0] }}</td><td>{{ metrics.confusion[1][1] }}</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
     <div class="label" style="margin-bottom: 10px">A small promise</div>
     <p style="color: var(--muted); font-size: 14px; line-height: 1.75">
       No signup. No fees. Nothing of yours is stored. This is a free helper for
